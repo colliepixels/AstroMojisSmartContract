@@ -1274,10 +1274,10 @@ contract AstroMojisFinal is ERC721Enumerable, Ownable {
 
 
   constructor(
-    string memory _name,
-    string memory _symbol,
-    string memory _initBaseURI,
-    string memory _initNotRevealedUri
+    string memory _name,                        // AstroMojis by Marwan Shahin
+    string memory _symbol,                      // ASTRO
+    string memory _initBaseURI,                 // https://astromojis.io/metadata
+    string memory _initNotRevealedUri           // https://astromojis.io/unrevealed/Unrevealed.png  
   ) ERC721(_name, _symbol) {
     setBaseURI(_initBaseURI);
     setNotRevealedURI(_initNotRevealedUri);
