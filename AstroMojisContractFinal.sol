@@ -1283,7 +1283,7 @@ contract AstroMojisFinal is ERC721Enumerable, Ownable {
     setBaseURI(_initBaseURI);
     setNotRevealedURI(_initNotRevealedUri);
     payments = payable(_payments);
-    mint(200);  ///mints 200 for team, community & VIPS ****NUMBER TO BE CHANGED BY TEAM NOT FINAL****
+    mint(msg.sender, 200);  ///mints 200 for team, community & VIPS ****NUMBER TO BE CHANGED BY TEAM NOT FINAL****
   }
 
   // internal
