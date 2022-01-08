@@ -1261,24 +1261,24 @@ contract AstroMojisFinal is ERC721Enumerable, Ownable {
   string public baseURI;
   string public baseExtension = ".json";
   string public notRevealedUri;
-  uint256 public cost = .0777 ether;
+  uint256 public cost = .0777 ether;            // can be changed after deployment
   uint256 public maxSupply = 11111;
   uint256 public maxMintAmount = 20;
-  uint256 public nftPerAddressLimit = 200;
-  bool public paused = false;
-  bool public revealed = false;
-  bool public onlyWhitelisted = true;
+  uint256 public nftPerAddressLimit = 200;     // set so VIP/Team/Community NFTS can be minted on contract deployment. Admin will change to deteremined limit after deployment.
+  bool public paused = false;                  // pauses sale 
+  bool public revealed = false;                // reveals NFT image & metadata. intial state defaults to unrevealed URI
+  bool public onlyWhitelisted = true;          // turns presale off/on
   address[] public whitelistedAddresses;
   address payable public payments;
-  mapping(address => uint256) public addressMintedBalance;
+  mapping(address => uint256) public addressMintedBalance;   //mapping to prevent transfer of presale out to reset limit
 
 
   constructor(
     string memory _name,                        // AstroMojis by Marwan Shahin
     string memory _symbol,                      // ASTRO
     string memory _initBaseURI,                 // https://astromojis.io/metadata/
-    string memory _initNotRevealedUri,           // https://astromojis.io/unrevealed/Unrevealed.png  
-    address _payments
+    string memory _initNotRevealedUri,          // https://astromojis.io/unrevealed/Unrevealed.png  
+    address _payments                           // address of gnosis safe split wallet 
   ) ERC721(_name, _symbol) {
     setBaseURI(_initBaseURI);
     setNotRevealedURI(_initNotRevealedUri);
