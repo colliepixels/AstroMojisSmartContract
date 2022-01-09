@@ -1258,12 +1258,12 @@ pragma solidity >=0.7.0 <0.9.0;
 contract AstroMojisFinal is ERC721Enumerable, Ownable {
   using Strings for uint256;
 
-  string public baseURI;
+  string public baseURI;                       // https://astromojis.io/metadata/
   string public baseExtension = ".json";
-  string public notRevealedUri;
-  uint256 public cost = .0777 ether;            // can be changed after deployment
+  string public notRevealedUri;                // https://astromojis.io/unrevealed/hidden.json
+  uint256 public cost = .0777 ether;           // can be changed after deployment
   uint256 public maxSupply = 11111;
-  uint256 public maxMintAmount = 20;
+  uint256 public maxMintAmount = 5;
   uint256 public nftPerAddressLimit = 200;     // set so VIP/Team/Community NFTS can be minted on contract deployment. Admin will change to deteremined limit after deployment.
   bool public paused = false;                  // pauses sale 
   bool public revealed = false;                // reveals NFT image & metadata. intial state defaults to unrevealed URI
