@@ -1255,22 +1255,22 @@ abstract contract Ownable is Context {
 
 pragma solidity >=0.7.0 <0.9.0;
 
-contract AstroMojisFinal is ERC721Enumerable, Ownable {
+contract TESTMOJI is ERC721Enumerable, Ownable {
   using Strings for uint256;
 
-  string public baseURI;                       // https://astromojis.io/metadata/
+  string public baseURI;
   string public baseExtension = ".json";
-  string public notRevealedUri;                // https://astromojis.io/unrevealed/hidden.json
-  uint256 public cost = .0777 ether;           // can be changed after deployment
+  string public notRevealedUri;
+  uint256 public cost = .0777 ether;
   uint256 public maxSupply = 11111;
-  uint256 public maxMintAmount = 5;
-  uint256 public nftPerAddressLimit = 200;     // set so VIP/Team/Community NFTS can be minted on contract deployment. Admin will change to deteremined limit after deployment.
-  bool public paused = false;                  // pauses sale 
-  bool public revealed = false;                // reveals NFT image & metadata. intial state defaults to unrevealed URI
-  bool public onlyWhitelisted = true;          // turns presale off/on
+  uint256 public maxMintAmount = 200;            
+  uint256 public nftPerAddressLimit = 20;
+  bool public paused = false;
+  bool public revealed = false;
+  bool public onlyWhitelisted = true;
   address[] public whitelistedAddresses;
   address payable public payments;
-  mapping(address => uint256) public addressMintedBalance;   //mapping to prevent transfer of presale out to reset limit
+  mapping(address => uint256) public addressMintedBalance;
 
 
   constructor(
@@ -1278,12 +1278,12 @@ contract AstroMojisFinal is ERC721Enumerable, Ownable {
     string memory _symbol,                      // ASTRO
     string memory _initBaseURI,                 // https://astromojis.io/metadata/
     string memory _initNotRevealedUri,          // https://astromojis.io/unrevealed/Unrevealed.png  
-    address _payments                           // address of gnosis safe split wallet 
+    address _payments
   ) ERC721(_name, _symbol) {
     setBaseURI(_initBaseURI);
     setNotRevealedURI(_initNotRevealedUri);
     payments = payable(_payments);
-    mint(msg.sender, 200);  ///mints 200 for team, community & VIPS ****NUMBER TO BE CHANGED BY TEAM NOT FINAL****
+    mint(20);                                  ///mints set amt for team, community & VIPS ---cost gas per NFT ****NUMBER TO BE CHANGED BY TEAM NOT FINAL****
   }
 
   // internal
